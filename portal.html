@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Portal — Focus Academy, Daska (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--cream:#FAF6EF;--paper:#FFFDF8;--ink:#14231C;--green:#0B3D2E;--green2:#0E4D3A;--gold:#C69A3A;--muted:#5C6B62;--line:#E4DCCB}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;min-height:100vh}
+  h1,h2,h3{font-family:'Fraunces',serif}
+  a{color:var(--green);font-weight:600}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+  header{padding:26px 0 6px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .name{font-family:'Fraunces',serif;font-weight:700;font-size:20px;color:var(--green);line-height:1.1}
+  .brand .sub{font-size:11px;letter-spacing:2.2px;color:var(--gold);font-weight:600;text-transform:uppercase}
+  .demoflag{margin-top:16px;background:#FBEBD9;border:1px solid #E8CFA5;color:#7A520E;border-radius:12px;padding:10px 14px;font-size:13.5px}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:22px}
+  label{font-size:13px;font-weight:600;display:block;margin:14px 0 6px}
+  label:first-child{margin-top:0}
+  input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit}
+  input:focus{outline:2px solid var(--gold);border-color:transparent}
+  .btn{display:inline-block;width:100%;text-align:center;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid var(--green);background:var(--green);color:#fff;cursor:pointer;margin-top:20px}
+  .btn:hover{background:var(--green2)}
+  .hint{font-size:13px;color:var(--muted);margin-top:12px;background:#F3EEE0;border-radius:10px;padding:10px 12px}
+  .err{color:#B3261E;font-size:13.5px;margin-top:10px;display:none}
+
+  #dash{display:none}
+  .student{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .student .who h2{font-size:26px;color:var(--green)}
+  .student .who p{color:var(--muted);font-size:14px}
+  .avatar{width:58px;height:58px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:22px;font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  @media(max-width:700px){.grid{grid-template-columns:1fr}}
+  .tile{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .tile .t{font-size:12.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)}
+  .tile .v{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--green);margin-top:4px}
+  .tile .s{font-size:13px;color:var(--muted)}
+  .pill{font-size:12px;font-weight:700;border-radius:999px;padding:3px 11px;vertical-align:middle}
+  .pill.ok{background:#E2F2E4;color:#1E7A34}.pill.due{background:#FBEBD9;color:#9A6212}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14.5px}
+  th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+  th{font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  tr.total td{font-weight:700;border-top:2px solid var(--green);border-bottom:none;color:var(--green)}
+  .note{background:#EFF3E4;border-radius:12px;padding:14px 16px;font-size:14.5px;margin-top:16px}
+  ul.ann{list-style:none;margin-top:8px}
+  ul.ann li{padding:10px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+  ul.ann li:last-child{border-bottom:none}
+  ul.ann b{color:var(--green)}
+  footer{padding:34px 0 40px;font-size:12.5px;color:var(--muted);text-align:center}
+  .logout{font-size:13.5px;cursor:pointer;color:var(--green);font-weight:600;background:none;border:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="index.html" style="text-decoration:none">
+      <svg width="42" height="42" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#0B3D2E" stroke-width="3"/><circle cx="24" cy="24" r="13" fill="none" stroke="#C69A3A" stroke-width="3"/><circle cx="24" cy="24" r="5" fill="#0B3D2E"/></svg>
+      <span><span class="name">Focus Academy</span><br><span class="sub">Parent Portal · Daska</span></span>
+    </a>
+    <div class="demoflag">🧪 <b>Demo portal hai</b> — neeche wala student aur result sirf misaal ke liye hai. Asal portal mein har walid ko apne bachay ka asal data milega.</div>
+  </header>
+
+  <!-- LOGIN -->
+  <div class="card" id="loginCard">
+    <h2 style="color:var(--green);font-size:26px">Parent Login</h2>
+    <p style="color:var(--muted);font-size:14.5px;margin-top:4px">Apne bachay ka roll number aur apna mobile number likhein.</p>
+    <form id="loginForm">
+      <label for="roll">Roll Number</label>
+      <input id="roll" inputmode="numeric" placeholder="e.g. 1042" required>
+      <label for="mob">Parent Mobile Number</label>
+      <input id="mob" inputmode="tel" placeholder="03XX-XXXXXXX" required>
+      <div class="err" id="loginErr">Roll number ghalat hai — demo ke liye <b>1042</b> likhein.</div>
+      <button class="btn" type="submit">Login →</button>
+      <div class="hint">💡 <b>Demo ke liye:</b> Roll Number <b>1042</b> likhein, mobile mein koi bhi number chalega.</div>
+    </form>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dash">
+    <div class="card">
+      <div class="student">
+        <div style="display:flex;gap:14px;align-items:center">
+          <div class="avatar">AR</div>
+          <div class="who">
+            <h2>Ahmed Raza <span style="font-size:13px;color:var(--muted);font-family:'Inter'"> (demo student)</span></h2>
+            <p>Class 10th — Science · Roll No 1042 · Section A</p>
+          </div>
+        </div>
+        <button class="logout" id="logoutBtn">Logout ✕</button>
+      </div>
+      <div class="grid">
+        <div class="tile"><div class="t">Attendance — October</div><div class="v">86%</div><div class="s">24 din mein 21 hazir</div></div>
+        <div class="tile"><div class="t">Monthly Test — Position</div><div class="v">3rd</div><div class="s">Class mein 28 bachon mein se</div></div>
+        <div class="tile"><div class="t">Fee — November</div><div class="v" style="font-size:22px;padding-top:6px"><span class="pill due">DUE</span></div><div class="s">October ki fee <span class="pill ok">PAID</span> hai</div></div>
+      </div>
+      <div class="note">📝 <b>Teacher ki note:</b> “Ahmed ki mehnat achi hai — Mathematics mein khaas behtari ayi hai. Chemistry ke numericals par thori aur practice chahiye.”</div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--green);font-size:21px">Result Card — Monthly Test, October 2026</h3>
+      <table>
+        <tr><th>Subject</th><th class="n">Obtained</th><th class="n">Total</th><th class="n">%</th></tr>
+        <tr><td>Mathematics</td><td class="n">68</td><td class="n">75</td><td class="n">91%</td></tr>
+        <tr><td>Physics</td><td class="n">54</td><td class="n">60</td><td class="n">90%</td></tr>
+        <tr><td>Chemistry</td><td class="n">49</td><td class="n">60</td><td class="n">82%</td></tr>
+        <tr><td>Biology</td><td class="n">57</td><td class="n">65</td><td class="n">88%</td></tr>
+        <tr><td>English</td><td class="n">61</td><td class="n">75</td><td class="n">81%</td></tr>
+        <tr><td>Urdu</td><td class="n">63</td><td class="n">75</td><td class="n">84%</td></tr>
+        <tr><td>Islamiat</td><td class="n">44</td><td class="n">50</td><td class="n">88%</td></tr>
+        <tr class="total"><td>Total / Percentage</td><td class="n">396</td><td class="n">460</td><td class="n">86%</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--muted);margin-top:10px">Grade: <b>A</b> · Position: <b>3rd</b> · Ye result card demo data par bana hai.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--green);font-size:21px">Academy ki Khabrein</h3>
+      <ul class="ann">
+        <li><b>2 Nov</b> — November Test Session shuru hoga; timetable portal par lag jayega.</li>
+        <li><b>8 Nov</b> — Parent–Teacher mulaqat, shaam 5 bajay, tamam walidain tashreef layen.</li>
+        <li><b>10 Nov</b> — November ki fee ki akhri tareekh.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    Focus Academy — Milad Chowk, Daska · Parent Portal (concept demo) · Asal version mein har student ka data mehfooz login ke peeche hoga.<br>
+    ← <a href="index.html">Website par wapas</a>
+  </footer>
+</div>
+
+<script>
+  const form = document.getElementById('loginForm');
+  const err = document.getElementById('loginErr');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const roll = document.getElementById('roll').value.trim();
+    if (roll !== '1042') { err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    document.getElementById('loginCard').style.display = 'none';
+    const dash = document.getElementById('dash');
+    dash.style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+  document.getElementById('logoutBtn').addEventListener('click', function(){
+    document.getElementById('dash').style.display = 'none';
+    document.getElementById('loginCard').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+</script>
+</body>
+</html>

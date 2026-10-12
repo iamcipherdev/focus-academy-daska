@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Focus Academy — Milad Chowk, Daska | Admissions Open</title>
+<meta name="description" content="Focus Academy, Milad Chowk Daska. Evening coaching for 9th, 10th, FSc, ICS & FA with weekly tests and a parent portal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EF; --paper:#FFFDF8; --ink:#14231C; --green:#0B3D2E; --green2:#0E4D3A;
+    --gold:#C69A3A; --gold-soft:#F0E3C0; --muted:#5C6B62; --line:#E4DCCB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  h1,h2,h3,.serif{font-family:'Fraunces',serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* top strip */
+  .strip{background:var(--green);color:#EDE6D2;font-size:13px;padding:8px 0}
+  .strip .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .strip b{color:var(--gold-soft);font-weight:600}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 22px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:44px;height:44px;flex:0 0 44px}
+  .brand .name{font-family:'Fraunces',serif;font-weight:700;font-size:21px;letter-spacing:.4px;color:var(--green);line-height:1.1}
+  .brand .sub{font-size:11px;letter-spacing:2.2px;color:var(--gold);font-weight:600;text-transform:uppercase}
+  .navlinks{display:flex;gap:26px;align-items:center;font-size:14.5px;font-weight:500}
+  .navlinks a:hover{color:var(--green2)}
+  .btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;font-size:14.5px;border:1px solid var(--green);transition:.2s}
+  .btn-solid{background:var(--green);color:#fff}
+  .btn-solid:hover{background:var(--green2)}
+  .btn-ghost{color:var(--green);background:transparent}
+  .btn-ghost:hover{background:#EFE8D6}
+  .btn-gold{background:var(--gold);border-color:var(--gold);color:#1d1503}
+  @media(max-width:760px){.navlinks a:not(.btn){display:none}}
+
+  /* hero */
+  .hero{padding:72px 0 60px;position:relative;overflow:hidden}
+  .hero .rings{position:absolute;right:-140px;top:-140px;width:480px;height:480px;opacity:.14;pointer-events:none}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--green)}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:#2FA84F;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,168,79,.5)}70%{box-shadow:0 0 0 7px rgba(47,168,79,0)}100%{box-shadow:0 0 0 0 rgba(47,168,79,0)}}
+  .hero h1{font-size:clamp(38px,6vw,62px);line-height:1.06;font-weight:600;color:var(--green);max-width:720px;margin:22px 0 16px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p.lead{font-size:18px;color:var(--muted);max-width:560px}
+  .hero .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .hero .meta{margin-top:26px;font-size:14px;color:var(--muted)}
+  .hero .meta b{color:var(--ink)}
+
+  /* stats */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
+  .stat{padding:26px 18px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none}
+  .stat .n{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:var(--green)}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:2px}
+  @media(max-width:760px){.stats .wrap{grid-template-columns:repeat(2,1fr)}.stat{border-top:1px solid var(--line)}}
+
+  section{padding:70px 0}
+  .kicker{font-size:12.5px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold)}
+  h2{font-size:clamp(28px,4vw,40px);font-weight:600;color:var(--green);margin:10px 0 12px;line-height:1.15}
+  .sub{color:var(--muted);max-width:620px}
+
+  /* programs */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;transition:.2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(20,35,28,.08)}
+  .card .ic{width:46px;height:46px;border-radius:12px;background:#EFF3E4;display:flex;align-items:center;justify-content:center;font-size:22px}
+  .card h3{font-size:20px;margin:14px 0 6px;color:var(--ink)}
+  .card p{font-size:14.5px;color:var(--muted)}
+  .card .tag{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--green);background:#E7EFE6;border-radius:6px;padding:3px 9px;text-transform:uppercase}
+
+  /* why */
+  .why{background:var(--green);color:#E9E2CE;border-radius:0}
+  .why h2{color:#fff}
+  .why .sub{color:#C9CFBF}
+  .why .grid{gap:0;border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden}
+  .why .cell{padding:30px;border-right:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.02)}
+  .why .cell:last-child{border-right:none}
+  .why .cell .n{font-family:'Fraunces',serif;font-size:15px;color:var(--gold);letter-spacing:1px}
+  .why .cell h3{color:#fff;font-size:21px;margin:8px 0 8px}
+  .why .cell p{font-size:14.5px;color:#C9CFBF}
+  @media(max-width:900px){.why .grid{grid-template-columns:1fr}.why .cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.14)}}
+
+  /* portal band */
+  .portal-band{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+  @media(max-width:800px){.portal-band{grid-template-columns:1fr;padding:28px}}
+  .portal-band h2{margin-top:0}
+  .mini{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:20px;font-size:14px}
+  .mini .row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line)}
+  .mini .row:last-child{border-bottom:none}
+  .mini .pill{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px}
+  .pill.ok{background:#E2F2E4;color:#1E7A34}
+  .pill.due{background:#FBEBD9;color:#9A6212}
+
+  /* inquiry */
+  .inquiry{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start}
+  @media(max-width:800px){.inquiry{grid-template-columns:1fr}}
+  form{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px}
+  label{font-size:13px;font-weight:600;display:block;margin:14px 0 6px}
+  label:first-child{margin-top:0}
+  input,select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;font-family:inherit;background:#fff}
+  input:focus,select:focus{outline:2px solid var(--gold);border-color:transparent}
+  form .btn{width:100%;text-align:center;margin-top:20px;cursor:pointer;font-size:15px}
+  .contact-lines p{margin:10px 0;font-size:15.5px}
+  .contact-lines b{color:var(--green)}
+
+  footer{background:var(--green);color:#C9CFBF;padding:44px 0 30px;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer .name{color:#fff;font-family:'Fraunces',serif;font-size:19px}
+  footer .fine{margin-top:26px;border-top:1px solid rgba(255,255,255,.15);padding-top:16px;font-size:12.5px;color:#9DB0A2;width:100%}
+</style>
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap">
+    <span>📍 <b>Milad Chowk, Daska</b> — District Sialkot</span>
+    <span>Admissions Open — <b>9th · 10th · FSc · ICS · FA</b></span>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="#0B3D2E" stroke-width="3"/><circle cx="24" cy="24" r="13" fill="none" stroke="#C69A3A" stroke-width="3"/><circle cx="24" cy="24" r="5" fill="#0B3D2E"/></svg>
+      <span><span class="name">Focus Academy</span><br><span class="sub">Daska</span></span>
+    </a>
+    <div class="navlinks">
+      <a href="#programs">Programs</a>
+      <a href="#why">Why Focus</a>
+      <a href="#portal">Parent Portal</a>
+      <a href="#admission">Admission</a>
+      <a class="btn btn-solid" href="portal.html">Parent Login</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="95" fill="none" stroke="#0B3D2E" stroke-width="2"/><circle cx="100" cy="100" r="65" fill="none" stroke="#C69A3A" stroke-width="2"/><circle cx="100" cy="100" r="35" fill="none" stroke="#0B3D2E" stroke-width="2"/></svg>
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span> Admissions Open — Session 2026–27</span>
+    <h1>Focus rakho,<br>result <em>khud</em> ayega.</h1>
+    <p class="lead">Milad Chowk, Daska ki evening academy — chhoti classes, har hafte test, aur walidain ko har cheez ki khabar. Parhai par focus, fikar walidain ki khatam.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="#admission">Admission Inquiry</a>
+      <a class="btn btn-gold" href="portal.html">Parent Portal — Demo</a>
+    </div>
+    <p class="meta">Classes: <b>9th · 10th · 1st Year · 2nd Year</b> &nbsp;|&nbsp; Timings: <b>Evening, Mon–Sat</b> &nbsp;|&nbsp; Board: <b>BISE Gujranwala</b></p>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">5</div><div class="l">Programs — Matric to Intermediate</div></div>
+    <div class="stat"><div class="n">Weekly</div><div class="l">Chapter tests &amp; full revisions</div></div>
+    <div class="stat"><div class="n">Daily</div><div class="l">Attendance update to parents</div></div>
+    <div class="stat"><div class="n">1 Tap</div><div class="l">Result card in the parent portal</div></div>
+  </div>
+</div>
+
+<section id="programs">
+  <div class="wrap">
+    <div class="kicker">Programs</div>
+    <h2>Har class ke liye alag focus</h2>
+    <p class="sub">Evening coaching jo school ke saath chalti hai — syllabus waqt par mukammal, phir revision aur test session, bilkul board pattern par.</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🔬</div><h3>9th Class — Science</h3><p>Physics, Chemistry, Biology/Math ki bunyad mazboot — wo saal jahan board ki neev parti hai.</p><span class="tag">Evening</span></div>
+      <div class="card"><div class="ic">🎯</div><h3>10th Class — Science</h3><p>Board saal: mukammal syllabus, guess + past papers, aur Revision &amp; Test (R&amp;T) session har month.</p><span class="tag">Board Year</span></div>
+      <div class="card"><div class="ic">🩺</div><h3>FSc — Pre-Medical</h3><p>1st Year aur 2nd Year ke liye MDCAT ki nazar se parhai — concepts pehle, ratta baad mein.</p><span class="tag">FSc</span></div>
+      <div class="card"><div class="ic">⚙️</div><h3>FSc — Pre-Engineering</h3><p>Mathematics aur Physics mein khaas mehnat; ECAT pattern ke hisaab se test practice.</p><span class="tag">FSc</span></div>
+      <div class="card"><div class="ic">💻</div><h3>ICS — Computer Science</h3><p>Computer Science ke saath Math/Stats — practical samajh ke saath board ki tayyari.</p><span class="tag">ICS</span></div>
+      <div class="card"><div class="ic">📚</div><h3>FA — Arts</h3><p>Arts subjects ke liye asaan lehja, notes aur test — har bachay ko barabar tawajjo.</p><span class="tag">FA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="kicker">Why Focus Academy</div>
+    <h2>Jo wada karte hain, wo system se pura karte hain</h2>
+    <p class="sub">Sirf parhana kaafi nahi — walidain ko maloom hona chahiye ke bacha academy gaya bhi hai ya nahi, aur test mein kya kiya.</p>
+    <div class="grid">
+      <div class="cell"><div class="n">— 01</div><h3>Chhoti classes</h3><p>Har class mein mehdood bachay, taake ustaad har bachay ko naam se jane aur kamzor topic pakar sake.</p></div>
+      <div class="cell"><div class="n">— 02</div><h3>Test system</h3><p>Har chapter ka test, har month revision — result card seedha parent portal mein, koi chhupa hua number nahi.</p></div>
+      <div class="cell"><div class="n">— 03</div><h3>Walidain se rabta</h3><p>Attendance, fees aur result — walidain ghar bethay portal par dekhein, ya WhatsApp par khabar lein.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portal">
+  <div class="wrap">
+    <div class="portal-band">
+      <div>
+        <div class="kicker">Parent Portal</div>
+        <h2>Apne bachay ki report, apne phone mein</h2>
+        <p class="sub" style="margin-bottom:22px">Roll number se login karen — attendance, fees ki haalat, aur har test ka result card ek hi jagah. Academy ki taraf se ye sahulat walidain ke liye bilkul muft hai.</p>
+        <a class="btn btn-solid" href="portal.html">Portal Khol Kar Dekhein →</a>
+      </div>
+      <div class="mini" aria-hidden="true">
+        <div class="row"><span>Attendance (October)</span><b>86%</b></div>
+        <div class="row"><span>Monthly Test — Position</span><b>3rd in class</b></div>
+        <div class="row"><span>Fee — October</span><span class="pill ok">PAID</span></div>
+        <div class="row"><span>Fee — November</span><span class="pill due">DUE</span></div>
+        <div class="row"><span>Teacher's note</span><span>“Mehnat achi hai”</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="admission" style="padding-top:20px">
+  <div class="wrap">
+    <div class="inquiry">
+      <div>
+        <div class="kicker">Admission Inquiry</div>
+        <h2>Seat ke liye aaj hi baat karen</h2>
+        <p class="sub">Form bhar dein — aap ki maloomat seedha academy ke WhatsApp par chali jaye gi, aur academy khud aap se rabta kare gi.</p>
+        <div class="contact-lines" style="margin-top:26px">
+          <p>📍 <b>Address:</b> Milad Chowk, Daska, District Sialkot</p>
+          <p>🕒 <b>Timings:</b> Monday – Saturday, Evening</p>
+          <p>🎓 <b>Classes:</b> 9th · 10th · FSc · ICS · FA</p>
+        </div>
+      </div>
+      <form id="inqForm">
+        <label for="pname">Parent ka naam</label>
+        <input id="pname" required placeholder="e.g. Muhammad Ashraf">
+        <label for="phone">Mobile number (WhatsApp)</label>
+        <input id="phone" required inputmode="tel" placeholder="03XX-XXXXXXX">
+        <label for="sname">Bachay ka naam</label>
+        <input id="sname" required placeholder="Student name">
+        <label for="cls">Class</label>
+        <select id="cls">
+          <option>9th — Science</option>
+          <option>10th — Science</option>
+          <option>FSc — Pre-Medical</option>
+          <option>FSc — Pre-Engineering</option>
+          <option>ICS</option>
+          <option>FA</option>
+        </select>
+        <button class="btn btn-solid" type="submit">WhatsApp Par Bhejen →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="name">Focus Academy — Daska</div>
+      <p style="margin-top:6px">Milad Chowk, Daska, District Sialkot, Punjab</p>
+    </div>
+    <div>
+      <p>Evening Coaching · Mon–Sat</p>
+      <p>Matric &amp; Intermediate — BISE Gujranwala</p>
+    </div>
+    <div class="fine">Concept demo website — prepared for presentation to Focus Academy. Sample content shown for demonstration; the live version will carry the academy's own data. · Design &amp; development: R&amp;R Labs (Cipher Developer)</div>
+  </div>
+</footer>
+
+<script>
+  // NOTE (for the academy's live version): replace with the academy's real WhatsApp number.
+  const ACADEMY_WHATSAPP = "923001234567";
+  document.getElementById('inqForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const msg = "Assalamualaikum! Admission inquiry — Focus Academy Daska%0A" +
+      "Parent: " + encodeURIComponent(document.getElementById('pname').value) + "%0A" +
+      "Mobile: " + encodeURIComponent(document.getElementById('phone').value) + "%0A" +
+      "Student: " + encodeURIComponent(document.getElementById('sname').value) + "%0A" +
+      "Class: " + encodeURIComponent(document.getElementById('cls').value);
+    window.open("https://wa.me/" + ACADEMY_WHATSAPP + "?text=" + msg, "_blank");
+  });
+</script>
+</body>
+</html>
